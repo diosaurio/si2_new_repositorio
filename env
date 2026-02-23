@@ -4,7 +4,7 @@
 
 # Use PostgreSQL
 # Configuración para VM2 (remoto)
-DATABASE_SERVER_URL='postgres://alumnodb:alumnodb@10.250.19.3:15432/si2db'
+DATABASE_SERVER_URL='postgres://alumnodb:alumnodb@10.250.11.5:15432/si2db'
 
 # Django settings
 DEBUG=True
