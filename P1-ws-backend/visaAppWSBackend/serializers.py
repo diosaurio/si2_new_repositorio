@@ -4,14 +4,9 @@ from .models import Tarjeta, Pago
 class TarjetaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tarjeta  
-        fields = '__all__'
+        fields = ['numero', 'nombre', 'fechaCaducidad', 'codigoAutorizacion']
 
 class PagoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pago
-        fields = ['tarjeta', 'idComercio', 'idTransaccion', 'importe']
-
-class ComercioSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Pago
-        fields = '__all__'
+        fields = ['tarjeta_id', 'idComercio', 'idTransaccion', 'importe']
