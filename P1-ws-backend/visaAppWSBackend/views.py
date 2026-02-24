@@ -42,6 +42,6 @@ class ComercioView(APIView):
         pagos = get_pagos_from_db(id_comercio)
 
         if not pagos:
-            return Response([], status=status.HTTP_200_OK)
+            return Response({'message': 'No comercios encontrados en la base de datos'}, status=status.HTTP_404_NOT_FOUND)
         
         return Response(PagoSerializer(pagos, many=True).data, status=status.HTTP_200_OK)
