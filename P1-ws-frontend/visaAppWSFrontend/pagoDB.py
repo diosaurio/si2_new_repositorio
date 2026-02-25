@@ -61,7 +61,7 @@ def eliminar_pago(idPago):
     :return True if succesful,
      False otherwise
      """
-    api_url = settings.RESTAPIBASEURL + f'/pago{idPago}/'
+    api_url = settings.RESTAPIBASEURL + f'/pago/{idPago}/'
     try:
         response = requests.delete(api_url, timeout=10)
 
