@@ -9,4 +9,4 @@ class TarjetaSerializer(serializers.ModelSerializer):
 class PagoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pago
-        fields = ['tarjeta_id', 'idComercio', 'idTransaccion', 'importe']
+        fields = '__all__'
