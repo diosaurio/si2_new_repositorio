@@ -16,5 +16,5 @@ DATABASE_SERVER_URL='postgres://alumnodb:alumnodb@10.0.2.2:15432/si2db'
 # The client does not need to store data in any database
 # so let us define a sqlite in orden to avoid warning messages
 DEBUG=True
-RESTAPIBASEURL='http://10.250.11.5:28000/restapiserver'
+RESTAPIBASEURL='http://10.250.6.4:28000/restapiserver'
 SECRET_KEY = 'django-insecure-alczftn)j1#$v%xmk@5j(n*px43c8kxgi_ua4%khc+t7g_)s9d'
