@@ -7,11 +7,6 @@
 "Interface with the dataabse"
 import requests
 from django.conf import settings
-from urllib.parse import urljoin 
-
-def get_api_url(endpoint):
-    base = settings.RESTAPIBASEURL.rstrip('/') + '/'
-    return urljoin(base, endpoint.strip('/') + '/')
 
 
 def verificar_tarjeta(tarjeta_data):
@@ -23,7 +18,7 @@ def verificar_tarjeta(tarjeta_data):
     if bool(tarjeta_data) is False:
        return False
        
-    api_url = get_api_url('tarjeta')
+    api_url = settings.RESTAPIBASEURL + '/tarjeta'
 
     try:
         response = requests.post(api_url, json=tarjeta_data, timeout=10)
@@ -45,7 +40,7 @@ def registrar_pago(pago_dict):
       plus de tarjeta_id (numero) of the tarjeta
     :return new pago info if succesful, None otherwise
     """
-    api_url = get_api_url('pago')
+    api_url = settings.RESTAPIBASEURL + '/pago'
     try:
         response = requests.post(api_url, json=pago_dict, timeout=10)
 
@@ -66,7 +61,7 @@ def eliminar_pago(idPago):
     :return True if succesful,
      False otherwise
      """
-    api_url = get_api_url(f'pago/{idPago}')
+    api_url = settings.RESTAPIBASEURL + f'/pago{idPago}'
     try:
         response = requests.delete(api_url, timeout=10)
 
@@ -85,7 +80,7 @@ def get_pagos_from_db(idComercio):
     :param idComercio: id of the comercio to get pagos from 
     :return list of pagos found
      """
-    api_url = get_api_url(f'comercio/{idComercio}')
+    api_url = settings.RESTAPIBASEURL + f'/comercio/{idComercio}'
     try:
         response = requests.get(api_url, timeout=10)
 
